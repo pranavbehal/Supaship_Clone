@@ -26,3 +26,7 @@ dist-ssr
 # ENV Files
 .env
 .env.production
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
