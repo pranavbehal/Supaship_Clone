@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "/output.css";
@@ -9,6 +9,7 @@ import AllPosts from "./AllPosts";
 import PostView from "./PostView";
 import Welcome from "./Welcome";
 import Navbar from "./Navbar";
+import { SupashipUserInfo, useSession } from "./use-session";
 
 const router = createBrowserRouter([
   {
@@ -41,14 +42,21 @@ const router = createBrowserRouter([
 function App() {
   return <RouterProvider router={router} />;
 }
-
 export default App;
 
+export const UserContext = createContext<SupashipUserInfo>({
+  session: null,
+  profile: null,
+});
+
 function Layout() {
+  const supashipUserInfo = useSession();
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <UserContext.Provider value={supashipUserInfo}>
+        <Navbar />
+        <Outlet />
+      </UserContext.Provider>
     </>
   );
 }
