@@ -1555,6 +1555,9 @@ svg {
   line-height: 1.75rem !important;
   --tw-text-opacity: 1 !important;
   color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
+  background-color: white !important;
+  padding: 10px !important;
+  border-radius: 15px !important;
 }
 
 .login-form-input {

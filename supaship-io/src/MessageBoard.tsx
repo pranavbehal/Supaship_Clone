@@ -30,7 +30,7 @@ export default function MessageBoard() {
           className="message-board-login-message"
           data-e2e="message-board-login"
         >
-          Yo Dawg. you gotta <Login /> to join in the discussion.
+          You neeed to <Login /> to join in the discussion.
         </h2>
       )}
       <Outlet />

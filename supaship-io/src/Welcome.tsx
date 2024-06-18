@@ -43,23 +43,27 @@ export function Welcome() {
             className="welcome-name-form"
             onSubmit={(event) => {
               event.preventDefault();
-              supaClient
-                .from("user_profiles")
-                .insert([
-                  {
-                    user_id: user.session?.user.id || "",
-                    username: userName,
-                  },
-                ])
-                .then(({ error }) => {
-                  if (error) {
-                    setServerError(`Username "${userName}" is already taken`);
-                  } else {
-                    const target = localStorage.getItem("returnPath") || "/";
-                    localStorage.removeItem("returnPath");
-                    navigate(target);
-                  }
-                });
+              // supaClient
+              //   .from("user_profiles")
+              //   .insert([
+              //     {
+              //       user_id: user.session?.user.id || "",
+              //       username: userName,
+              //     },
+              //   ])
+              //   .then(({ error }) => {
+              //     if (error) {
+              //       setServerError(`Username "${userName}" is already taken`);
+              //     } else {
+              //       const target = localStorage.getItem("returnPath") || "/";
+              //       localStorage.removeItem("returnPath");
+              //       navigate(target);
+              //     }
+              //   });
+              localStorage.setItem("username", userName);
+              localStorage.removeItem("returnPath");
+              const target = localStorage.getItem("returnPath") || "/";
+              navigate(target);
             }}
           >
             <input
